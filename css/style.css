@@ -9,6 +9,11 @@
     --color-text-light: #666;
     --color-border: #e0e0e0;
 
+    /* Dark blue gradient colors */
+    --color-dark-blue: #0a1628;
+    --color-dark-blue-mid: #0f2847;
+    --color-dark-blue-light: #1a3a5c;
+
     --font-serif: 'Cormorant', Georgia, serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
@@ -296,7 +301,7 @@ ul {
 .page-header {
     padding: calc(100px + var(--spacing-xl)) var(--spacing-md) var(--spacing-xl);
     text-align: center;
-    background-color: var(--color-primary);
+    background-color: transparent;
 }
 
 .page-title {
@@ -309,7 +314,23 @@ ul {
 .page-biography,
 .page-media,
 .page-calendar {
-    background-color: var(--color-primary);
+    background:
+        /* Subtle brushed texture overlay */
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.01) 2px,
+            rgba(255, 255, 255, 0.01) 4px
+        ),
+        /* Main gradient */
+        radial-gradient(
+            ellipse at top left,
+            var(--color-dark-blue-light) 0%,
+            var(--color-dark-blue-mid) 40%,
+            var(--color-dark-blue) 100%
+        );
+    background-attachment: fixed;
     color: var(--color-white);
 }
 
@@ -599,7 +620,7 @@ ul {
 .page-media .footer,
 .page-calendar .footer {
     position: relative;
-    background-color: var(--color-primary);
+    background-color: transparent;
 }
 
 .page-biography .copyright,
@@ -692,7 +713,12 @@ ul {
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: var(--color-primary);
+        background: radial-gradient(
+            ellipse at top left,
+            var(--color-dark-blue-light) 0%,
+            var(--color-dark-blue-mid) 40%,
+            var(--color-dark-blue) 100%
+        );
         flex-direction: column;
         align-items: center;
         justify-content: center;

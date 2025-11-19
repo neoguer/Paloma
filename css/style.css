@@ -317,32 +317,32 @@ ul {
     background:
         /* Organic brushed silver texture - multiple layers for natural look */
         radial-gradient(
-            ellipse 1000px 600px at 15% 25%,
+            ellipse 1000px 600px,
             rgba(160, 165, 175, 0.35) 0%,
             transparent 60%
         ),
         radial-gradient(
-            ellipse 800px 400px at 85% 15%,
+            ellipse 800px 400px,
             rgba(140, 145, 155, 0.28) 0%,
             transparent 55%
         ),
         radial-gradient(
-            ellipse 1200px 700px at 50% 65%,
+            ellipse 1200px 700px,
             rgba(170, 175, 185, 0.32) 0%,
             transparent 60%
         ),
         radial-gradient(
-            ellipse 600px 350px at 5% 85%,
+            ellipse 600px 350px,
             rgba(150, 155, 165, 0.25) 0%,
             transparent 55%
         ),
         radial-gradient(
-            ellipse 900px 450px at 95% 55%,
+            ellipse 900px 450px,
             rgba(155, 160, 170, 0.28) 0%,
             transparent 55%
         ),
         radial-gradient(
-            ellipse 700px 400px at 40% 40%,
+            ellipse 700px 400px,
             rgba(165, 170, 180, 0.22) 0%,
             transparent 50%
         ),
@@ -353,8 +353,77 @@ ul {
             var(--color-dark-blue-mid) 40%,
             var(--color-dark-blue) 100%
         );
-    background-attachment: fixed;
+    background-size:
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+    background-position:
+        15% 25%,
+        85% 15%,
+        50% 65%,
+        5% 85%,
+        95% 55%,
+        40% 40%,
+        0% 0%;
+    animation: flowingClouds 60s ease-in-out infinite;
     color: var(--color-white);
+}
+
+@keyframes flowingClouds {
+    0% {
+        background-position:
+            15% 25%,
+            85% 15%,
+            50% 65%,
+            5% 85%,
+            95% 55%,
+            40% 40%,
+            0% 0%;
+    }
+    25% {
+        background-position:
+            25% 35%,
+            75% 25%,
+            60% 55%,
+            15% 75%,
+            85% 65%,
+            50% 30%,
+            0% 0%;
+    }
+    50% {
+        background-position:
+            35% 20%,
+            65% 35%,
+            40% 75%,
+            25% 65%,
+            75% 45%,
+            30% 50%,
+            0% 0%;
+    }
+    75% {
+        background-position:
+            20% 40%,
+            80% 20%,
+            55% 60%,
+            10% 80%,
+            90% 50%,
+            45% 35%,
+            0% 0%;
+    }
+    100% {
+        background-position:
+            15% 25%,
+            85% 15%,
+            50% 65%,
+            5% 85%,
+            95% 55%,
+            40% 40%,
+            0% 0%;
+    }
 }
 
 .page-biography .header,

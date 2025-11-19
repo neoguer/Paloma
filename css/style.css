@@ -315,7 +315,7 @@ ul {
 .page-media,
 .page-calendar {
     background:
-        /* Organic brushed silver texture - multiple layers for natural look */
+        /* Organic brushed silver texture - multiple cloud layers */
         radial-gradient(
             ellipse 1000px 600px,
             rgba(160, 165, 175, 0.35) 0%,
@@ -346,6 +346,26 @@ ul {
             rgba(165, 170, 180, 0.22) 0%,
             transparent 50%
         ),
+        radial-gradient(
+            ellipse 850px 500px,
+            rgba(145, 150, 160, 0.26) 0%,
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse 750px 380px,
+            rgba(155, 160, 170, 0.24) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse 950px 550px,
+            rgba(160, 165, 175, 0.30) 0%,
+            transparent 58%
+        ),
+        radial-gradient(
+            ellipse 650px 320px,
+            rgba(140, 145, 155, 0.20) 0%,
+            transparent 52%
+        ),
         /* Main dark blue base */
         radial-gradient(
             ellipse at top left,
@@ -360,70 +380,12 @@ ul {
         100% 100%,
         100% 100%,
         100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
         100% 100%;
-    background-position:
-        15% 25%,
-        85% 15%,
-        50% 65%,
-        5% 85%,
-        95% 55%,
-        40% 40%,
-        0% 0%;
-    animation: flowingClouds 60s ease-in-out infinite;
     color: var(--color-white);
-}
-
-@keyframes flowingClouds {
-    0% {
-        background-position:
-            15% 25%,
-            85% 15%,
-            50% 65%,
-            5% 85%,
-            95% 55%,
-            40% 40%,
-            0% 0%;
-    }
-    25% {
-        background-position:
-            25% 35%,
-            75% 25%,
-            60% 55%,
-            15% 75%,
-            85% 65%,
-            50% 30%,
-            0% 0%;
-    }
-    50% {
-        background-position:
-            35% 20%,
-            65% 35%,
-            40% 75%,
-            25% 65%,
-            75% 45%,
-            30% 50%,
-            0% 0%;
-    }
-    75% {
-        background-position:
-            20% 40%,
-            80% 20%,
-            55% 60%,
-            10% 80%,
-            90% 50%,
-            45% 35%,
-            0% 0%;
-    }
-    100% {
-        background-position:
-            15% 25%,
-            85% 15%,
-            50% 65%,
-            5% 85%,
-            95% 55%,
-            40% 40%,
-            0% 0%;
-    }
 }
 
 .page-biography .header,

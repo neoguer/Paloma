@@ -323,17 +323,12 @@ ul {
         ),
         radial-gradient(
             ellipse,
-            rgba(140, 145, 155, 0.28) 0%,
+            rgba(145, 150, 160, 0.30) 0%,
             transparent 70%
         ),
         radial-gradient(
             ellipse,
-            rgba(170, 175, 185, 0.32) 0%,
-            transparent 70%
-        ),
-        radial-gradient(
-            ellipse,
-            rgba(150, 155, 165, 0.25) 0%,
+            rgba(155, 160, 170, 0.28) 0%,
             transparent 70%
         ),
         /* Main dark blue base */
@@ -345,10 +340,14 @@ ul {
         );
     background-size:
         450px 320px,
-        380px 280px,
-        520px 380px,
-        400px 300px,
+        400px 280px,
+        480px 340px,
         100% 100%;
+    background-position:
+        -100% -100%,
+        -100% -100%,
+        -100% -100%,
+        0% 0%;
     color: var(--color-white);
 }
 

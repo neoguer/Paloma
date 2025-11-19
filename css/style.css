@@ -1,0 +1,720 @@
+/* CSS Variables */
+:root {
+    --color-primary: #1a1a1a;
+    --color-secondary: #333;
+    --color-accent: #8b7355;
+    --color-light: #f5f5f5;
+    --color-white: #fff;
+    --color-text: #333;
+    --color-text-light: #666;
+    --color-border: #e0e0e0;
+
+    --font-serif: 'Cormorant', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    --spacing-2xl: 6rem;
+
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Page Wrapper */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header & Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--spacing-md);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: var(--transition-normal);
+}
+
+.nav-menu {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.nav-menu a {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: var(--color-white);
+    padding: var(--spacing-xs) 0;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-white);
+    transition: width var(--transition-normal);
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.nav-lang {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.nav-lang a {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color var(--transition-fast);
+}
+
+.nav-lang a:hover,
+.nav-lang a.active {
+    color: var(--color-white);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--color-white);
+    padding: var(--spacing-xl);
+}
+
+.poem {
+    margin-bottom: var(--spacing-xl);
+}
+
+.poem-line {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.poem-line:nth-child(1) { animation-delay: 0.2s; }
+.poem-line:nth-child(2) { animation-delay: 0.4s; }
+.poem-line:nth-child(3) { animation-delay: 0.6s; }
+.poem-line:nth-child(4) { animation-delay: 0.8s; }
+
+.poem-author {
+    font-family: var(--font-serif);
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-top: var(--spacing-md);
+    opacity: 0;
+    animation: fadeIn 0.8s ease 1s forwards;
+}
+
+.hero-name {
+    opacity: 0;
+    animation: fadeIn 1s ease 1.2s forwards;
+}
+
+.logo-text {
+    max-width: 300px;
+    margin: 0 auto;
+    filter: brightness(0) invert(1);
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-md);
+    z-index: 10;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color var(--transition-fast);
+}
+
+.social-links a:hover {
+    color: var(--color-white);
+}
+
+.social-links svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Page Header (for inner pages) */
+.page-header {
+    padding: calc(100px + var(--spacing-xl)) var(--spacing-md) var(--spacing-xl);
+    text-align: center;
+    background-color: var(--color-light);
+}
+
+.page-title {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Inner Page Styles */
+.page-biography .header,
+.page-media .header,
+.page-calendar .header {
+    background-color: var(--color-primary);
+}
+
+.page-biography .nav-menu a,
+.page-media .nav-menu a,
+.page-calendar .nav-menu a {
+    color: var(--color-white);
+}
+
+/* Biography Page */
+.biography-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+}
+
+.biography-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.biography-text {
+    order: 1;
+}
+
+.biography-text p {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+}
+
+.biography-text p:last-child {
+    margin-bottom: 0;
+}
+
+.biography-text em {
+    font-style: italic;
+}
+
+.biography-image {
+    order: 2;
+}
+
+.biography-image img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Media Page */
+.media-section {
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl);
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.media-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: var(--color-light);
+    cursor: pointer;
+}
+
+.media-item img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.media-item:hover img {
+    transform: scale(1.05);
+}
+
+.media-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--spacing-md);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.media-item:hover .media-overlay {
+    opacity: 1;
+}
+
+.media-date {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-xs);
+}
+
+.media-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--color-white);
+    line-height: 1.4;
+}
+
+.media-btn {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background-color var(--transition-fast);
+}
+
+.media-btn:hover {
+    background-color: var(--color-light);
+}
+
+/* Calendar Page */
+.calendar-section {
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.calendar-heading {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-light);
+}
+
+.events-list {
+    margin-bottom: var(--spacing-xl);
+}
+
+.event-item {
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-md) 0;
+}
+
+.event-header {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: var(--spacing-md);
+    align-items: center;
+    cursor: pointer;
+}
+
+.event-date {
+    text-align: center;
+}
+
+.event-day {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--color-primary);
+}
+
+.event-month {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin-top: var(--spacing-xs);
+}
+
+.event-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-primary);
+}
+
+.event-toggle {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    transition: color var(--transition-fast);
+}
+
+.event-header:hover .event-toggle {
+    color: var(--color-primary);
+}
+
+.event-details {
+    display: none;
+    padding: var(--spacing-md) 0 var(--spacing-sm);
+    margin-left: 100px;
+    padding-left: var(--spacing-md);
+}
+
+.event-item.active .event-details {
+    display: block;
+}
+
+.event-venue,
+.event-piece {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+.event-link {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+}
+
+.event-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Modal/Lightbox */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    padding: var(--spacing-xl);
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-content img,
+.modal-content iframe {
+    max-width: 100%;
+    max-height: 80vh;
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    color: var(--color-white);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+/* Static Footer for Inner Pages */
+.page-biography .footer,
+.page-media .footer,
+.page-calendar .footer {
+    position: relative;
+    background-color: var(--color-primary);
+}
+
+.page-biography .copyright,
+.page-media .copyright,
+.page-calendar .copyright {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .biography-content {
+        grid-template-columns: 1fr;
+    }
+
+    .biography-image {
+        order: 1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .biography-text {
+        order: 2;
+    }
+
+    .media-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-primary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-lg);
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .nav-menu a {
+        font-size: 1.5rem;
+    }
+
+    .nav-lang {
+        position: fixed;
+        bottom: var(--spacing-xl);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1001;
+    }
+
+    .event-header {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .event-toggle {
+        display: none;
+    }
+
+    .event-details {
+        margin-left: 80px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        padding: var(--spacing-md);
+    }
+
+    .poem-line {
+        font-size: 1rem;
+    }
+
+    .logo-text {
+        max-width: 200px;
+    }
+
+    .biography-text p {
+        font-size: 1rem;
+    }
+}

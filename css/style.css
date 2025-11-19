@@ -317,54 +317,54 @@ ul {
     background:
         /* Organic brushed silver texture - multiple cloud layers */
         radial-gradient(
-            ellipse 1000px 600px,
+            ellipse,
             rgba(160, 165, 175, 0.35) 0%,
-            transparent 60%
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 800px 400px,
+            ellipse,
             rgba(140, 145, 155, 0.28) 0%,
-            transparent 55%
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 1200px 700px,
+            ellipse,
             rgba(170, 175, 185, 0.32) 0%,
-            transparent 60%
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 600px 350px,
+            ellipse,
             rgba(150, 155, 165, 0.25) 0%,
-            transparent 55%
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 900px 450px,
+            ellipse,
             rgba(155, 160, 170, 0.28) 0%,
-            transparent 55%
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 700px 400px,
+            ellipse,
             rgba(165, 170, 180, 0.22) 0%,
-            transparent 50%
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 850px 500px,
+            ellipse,
             rgba(145, 150, 160, 0.26) 0%,
-            transparent 55%
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 750px 380px,
+            ellipse,
             rgba(155, 160, 170, 0.24) 0%,
-            transparent 50%
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 950px 550px,
+            ellipse,
             rgba(160, 165, 175, 0.30) 0%,
-            transparent 58%
+            transparent 70%
         ),
         radial-gradient(
-            ellipse 650px 320px,
+            ellipse,
             rgba(140, 145, 155, 0.20) 0%,
-            transparent 52%
+            transparent 70%
         ),
         /* Main dark blue base */
         radial-gradient(
@@ -374,16 +374,16 @@ ul {
             var(--color-dark-blue) 100%
         );
     background-size:
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
+        400px 300px,
+        350px 250px,
+        500px 350px,
+        300px 200px,
+        450px 320px,
+        380px 280px,
+        420px 300px,
+        360px 240px,
+        480px 340px,
+        320px 220px,
         100% 100%;
     color: var(--color-white);
 }

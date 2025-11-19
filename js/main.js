@@ -20,6 +20,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Language Toggle
+    const langLinks = document.querySelectorAll('.nav-lang a');
+    const currentLang = localStorage.getItem('paloma-lang') || 'en';
+
+    // Set initial active state based on stored language
+    langLinks.forEach(link => {
+        const linkText = link.textContent.trim();
+        let linkLang = 'en';
+        if (linkText === '繁') linkLang = 'zh';
+        if (linkText === '简') linkLang = 'cn';
+
+        if (linkLang === currentLang) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Update active state
+            langLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+
+            // Store language preference
+            localStorage.setItem('paloma-lang', linkLang);
+
+            // Note: Full translation would require separate language files
+            // For now, this stores the preference for future implementation
+        });
+    });
+
     // Calendar Event Toggle
     const eventHeaders = document.querySelectorAll('.event-header');
 

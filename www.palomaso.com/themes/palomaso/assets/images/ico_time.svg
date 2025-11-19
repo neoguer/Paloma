@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+  <defs>
+    <style>
+		.st1{fill:none;stroke:#f5f5f5;stroke-miterlimit:10;}
+		.st2{fill:none;stroke:#f5f5f5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+    </style>
+  </defs>
+  <path id="Path_264" class="st1" d="M9.9,15.3L9.9,15.3c-3.5,0.5-6.7-2-7.2-5.5l0,0C2.2,6.3,4.7,3,8.2,2.6l0,0c3.5-0.5,6.7,2,7.2,5.5
+	l0,0C15.8,11.6,13.4,14.8,9.9,15.3z"/>
+<path id="Path_265" class="st2" d="M12.3,5.5L9,9L6.8,6.8"/>
+</svg>

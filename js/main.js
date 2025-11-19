@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         pageWrapper.classList.contains('page-media') ||
         pageWrapper.classList.contains('page-calendar'))) {
 
-        const numClouds = 10;
+        const numClouds = 4;
 
         // Generate random starting positions for each cloud
         function generateRandomPositions() {
